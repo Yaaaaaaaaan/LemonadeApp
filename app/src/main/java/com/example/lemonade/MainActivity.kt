@@ -70,6 +70,7 @@ class MainActivity : AppCompatActivity() {
         }
         lemonImage!!.setOnLongClickListener {
             // TODO: replace 'false' with a call to the function that shows the squeeze count
+            // TODO: substitua 'false' por uma chamada para a função que mostra a contagem de compressão
             false
         }
     }
