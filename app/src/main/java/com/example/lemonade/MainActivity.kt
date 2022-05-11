@@ -111,6 +111,27 @@ class MainActivity : AppCompatActivity() {
 
         // TODO: lastly, before the function terminates we need to set the view elements so that the
         //  UI can reflect the correct state
+
+        // TODO: use uma instrução condicional como 'if' ou 'when' para rastrear o lemonadeState
+        //  quando a imagem é clicada, podemos precisar mudar de estado para a próxima etapa no
+        //  progressão fazendo limonada (ou pelo menos fazer algumas mudanças no estado atual no
+        //  caso de espremer o limão). Isso deve ser feito nesta declaração condicional
+
+        // TODO: Quando a imagem é clicada no estado SELECT, o estado deve se tornar SQUEEZE
+        //  - A variável lemonSize precisa ser definida usando o método 'pick()' na classe LemonTree
+        //  - O squeezeCount deve ser 0 já que ainda não esprememos nenhum limão.
+
+        // TODO: Quando a imagem é clicada no estado SQUEEZE, o squeezeCount precisa ser
+        //  AUMENTADO em 1 e lemonSize precisa ser DIMINUÍDO em 1.
+        //  - Se o lemonSize atingiu 0, ele foi espremido e o estado deve se tornar DRINK
+        //  - Além disso, lemonSize não é mais relevante e deve ser definido como -1
+
+        // TODO: Quando a imagem é clicada no estado DRINK o estado deve se tornar RESTART
+
+        // TODO: Quando a imagem é clicada no estado RESTART o estado deve se tornar SELECT
+
+        // TODO: por último, antes que a função termine, precisamos definir os elementos da view para que o
+        //  UI pode refletir o estado correto
     }
 
     /**
@@ -120,12 +141,21 @@ class MainActivity : AppCompatActivity() {
         val textAction: TextView = findViewById(R.id.text_action)
         // TODO: set up a conditional that tracks the lemonadeState
 
+
         // TODO: for each state, the textAction TextView should be set to the corresponding string from
         //  the string resources file. The strings are named to match the state
+
+        // TODO: para cada estado, o textAction TextView deve ser definido para a string correspondente de
+        //  o arquivo de recursos de string. As strings são nomeadas para corresponder ao estado
+
 
         // TODO: Additionally, for each state, the lemonImage should be set to the corresponding
         //  drawable from the drawable resources. The drawables have the same names as the strings
         //  but remember that they are drawables, not strings.
+
+        // TODO: Além disso, para cada estado, o lemonImage deve ser definido para o valor correspondente
+        //  desenhável dos recursos desenháveis. Os drawables têm os mesmos nomes que as strings
+        //  mas lembre-se que eles são drawables, não strings.
     }
 
     /**
