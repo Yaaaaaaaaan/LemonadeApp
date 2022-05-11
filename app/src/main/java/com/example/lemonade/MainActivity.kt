@@ -69,9 +69,10 @@ class MainActivity : AppCompatActivity() {
             clickLemonImage()
         }
         lemonImage!!.setOnLongClickListener {
+
             // TODO: replace 'false' with a call to the function that shows the squeeze count
             // TODO: substitua 'false' por uma chamada para a função que mostra a contagem de compressão
-            false
+            showSnackbar()
         }
     }
 
@@ -92,6 +93,28 @@ class MainActivity : AppCompatActivity() {
      * This method determines the state and proceeds with the correct action.
      */
     private fun clickLemonImage() {
+        when (lemonadeState){
+            SELECT -> {
+                lemonadeState = SQUEEZE
+                val tree: LemonTree = lemonTree
+                lemonSize= tree.pick();
+                squeezeCount =0
+            }
+            SQUEEZE ->{
+                squeezeCount +=1
+                lemonSize -=1
+                lemonadeState = if (lemonSize ==0){
+                    DRINK
+                }else SQUEEZE
+            }
+            DRINK ->{
+                lemonadeState = RESTART
+                lemonSize =-1
+            }
+            RESTART -> lemonadeState = SELECT
+        }
+        setViewElements()
+
         // TODO: use a conditional statement like 'if' or 'when' to track the lemonadeState
         //  when the image is clicked we may need to change state to the next step in the
         //  lemonade making progression (or at least make some changes to the current state in the
@@ -140,6 +163,26 @@ class MainActivity : AppCompatActivity() {
      */
     private fun setViewElements() {
         val textAction: TextView = findViewById(R.id.text_action)
+        val lemonImage:ImageView=findViewById(R.id.image_lemon_state)
+
+        when(lemonadeState){
+            SELECT -> {
+                textAction.text= "Click to select a lemon!"
+                lemonImage.setImageResource(R.drawable.lemon_tree)
+            }
+            SQUEEZE -> {
+                textAction.text = "Click to juice the lemon"
+                lemonImage.setImageResource(R.drawable.lemon_squeeze)
+            }
+            DRINK -> {
+                textAction.text = "Click to drink your lemonade!"
+                lemonImage.setImageResource(R.drawable.lemon_drink)
+            }
+            RESTART -> {
+                textAction.text = "Click to start again!"
+                lemonImage.setImageResource(R.drawable.lemon_restart)
+            }
+        }
         // TODO: set up a conditional that tracks the lemonadeState
 
 
